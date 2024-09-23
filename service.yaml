@@ -1,5 +1,6 @@
 apiVersion: gitisking/v1
 version: v2.1.0
+env: dev
 metadata:
   name: restock-service
   version: v2.1.0
@@ -14,16 +15,16 @@ actualState:
     lastChecked: "2024-09-23T12:00:00Z"
     handshakeStatus: successful
     details:
-      stock-service-v2:
+      stockService:
         status: true
         message: "Handshake successful with stock Service"
-      pricing-service-v2:
+      pricingService:
         status: true
         message: "Handshake successful with pricing Service"
 desiredState:
-  pricing-service-v2:
+  stockService:
+    sync: strict
+    repo: https://github.com/ARAldhafeeri/stock-service-config.git
+  pricingService:
     sync: strict
     repo: https://github.com/ARAldhafeeri/pricing-service-config.git
-  restock-service-v2:
-    sync: strict
-    repo: https://github.com/ARAldhafeeri/restock-service-config.git
