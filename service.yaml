@@ -1,0 +1,29 @@
+apiVersion: gitisking/v1
+version: v2.1.0
+metadata:
+  name: restock-service
+  version: v2.1.0
+  repo: https://github.com/ARAldhafeeri/restock-service-config.git
+  language: nodejs
+  devBaseURL: https://localhost:3000/restock/dev/
+  stageBaseURL: https://localhost:3000/restock/stage/
+  prodBaseURL: https://localhost:3000/restock/prod/
+  description: "Manages the restocking process for products when stock falls below a threshold."
+actualState:
+  handshake:
+    lastChecked: "2024-09-23T12:00:00Z"
+    handshakeStatus: successful
+    details:
+      stock-service-v2:
+        status: true
+        message: "Handshake successful with stock Service"
+      pricing-service-v2:
+        status: true
+        message: "Handshake successful with pricing Service"
+desiredState:
+  pricing-service-v2:
+    sync: strict
+    repo: https://github.com/ARAldhafeeri/pricing-service-config.git
+  restock-service-v2:
+    sync: strict
+    repo: https://github.com/ARAldhafeeri/restock-service-config.git
